@@ -10,7 +10,7 @@ export default function Form({ items }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!description) return;
-    const newItem = { description, done: false, id: Date.now() };
+    // const newItem = { description, done: false, id: Date.now() };
     onAddItems(newItem);
     setDescription("");
   };

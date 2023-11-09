@@ -5,7 +5,13 @@ const App = () => {
   const [items, setItems] = useState([]);
 
   function handleAddItems(item) {
-    setItems([...items, item]);
+    const newItem = {
+      name: description,
+      isPacked: false,
+      id: nanoid(),
+    };
+
+    setItems([...items, newItem]);
   }
 
   function handleDeleteItem(id) {
