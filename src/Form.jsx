@@ -4,14 +4,14 @@
 import React from "react";
 
 import { useState } from "react";
-export default function Form({ items }) {
+export default function Form({ handleAddItems }) {
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!description) return;
     // const newItem = { description, done: false, id: Date.now() };
-    onAddItems(newItem);
+    handleAddItems(description);
     setDescription("");
   };
 

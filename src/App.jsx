@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <section className="section-center">
-      <Form onAddItems={handleAddItems} />
+      <Form handleAddItems={handleAddItems} />
     </section>
   );
 };
