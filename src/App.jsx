@@ -1,7 +1,7 @@
 import Form from "./Form";
 import { useState } from "react";
 import Items from "./Items";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 //store and retrieve data in browser's local storage: key value pairs
 // const getLocalStorage = () => {
@@ -37,8 +37,6 @@ const App = () => {
     toast.success(`${newItems.name} added!`);
   }
 
-  toast.success("item added to the list");
-
   function handleDeleteItem(id) {
     const newItems = (items) => items.filter((item) => item.id !== id);
     setItems(newItems);
@@ -68,6 +66,7 @@ const App = () => {
 
   return (
     <section className="section-center">
+      <ToastContainer position="top-center" />
       <Form handleAddItems={handleAddItems} />
       <Items items={items} removeItem={handleDeleteItem} editItem={editItem} />
     </section>
