@@ -1,5 +1,6 @@
 import Form from "./Form";
 import { useState } from "react";
+import Items from "./Items";
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -33,6 +34,7 @@ const App = () => {
   return (
     <section className="section-center">
       <Form handleAddItems={handleAddItems} />
+      <Items items={items} removeItem={handleDeleteItem} />
     </section>
   );
 };

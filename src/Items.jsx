@@ -3,10 +3,13 @@
 
 import React from "react";
 
-export default function Items() {
+export default function Items({ items, removeItem }) {
   return (
-    <div>
-      <SingleItem />
+    <div className="items">
+      {items.map((item) => {
+        const { id } = item;
+        return <SingleItem key={id} item={item} removeItem={removeItem} />;
+      })}
     </div>
   );
 }
