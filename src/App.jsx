@@ -1,6 +1,7 @@
 import Form from "./Form";
 import { useState } from "react";
 import Items from "./Items";
+import { nanoid } from "nanoid";
 import { ToastContainer, toast } from "react-toastify";
 
 //store and retrieve data in browser's local storage: key value pairs
@@ -34,22 +35,22 @@ const App = () => {
     const newItems = [...items, newItem];
     setItems(newItems);
     setLocalStorage(newItems);
-    toast.success(`${newItems.name} added!`);
+    toast.success(`${newItem.name} added!`);
   }
 
   function handleDeleteItem(id) {
-    const newItems = (items) => items.filter((item) => item.id !== id);
+    const newItems = items.filter((item) => item.id !== id);
     setItems(newItems);
     setLocalStorage(newItems);
   }
 
-  function handleToggleItem(id) {
-    setItems((items) =>
-      items.map((item) =>
-        item.id === id ? { ...item, packed: !item.packed } : item
-      )
-    );
-  }
+  // function handleToggleItem(id) {
+  //   setItems((items) =>
+  //     items.map((item) =>
+  //       item.id === id ? { ...item, packed: !item.packed } : item
+  //     )
+  //   );
+  // }
 
   function handleClearList() {
     setItems([]);
@@ -57,11 +58,13 @@ const App = () => {
 
   const editItem = (itemId) => {
     const newItems = items.map((item) => {
-      if (item.id === id) {
-        const newItem = { ...item, completed: !item.completed };
+      if (item.id === itemId) {
+        const newItem = { ...item, isPacked: !item.completed };
         return newItem;
       } else return item;
     });
+    setItems(newItems);
+    setLocalStorage(newItems);
   };
 
   return (

@@ -2,8 +2,9 @@
 //For now, only render the name of the item.
 
 import React from "react";
+import SingleItem from "./SingleItem";
 
-export default function Items({ items, removeItem }) {
+export default function Items({ items, removeItem, editItem }) {
   return (
     <div className="items">
       {items.map((item) => {
