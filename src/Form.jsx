@@ -11,7 +11,7 @@ export default function Form({ handleAddItems }) {
       return;
     }
 
-    handleAddItems(description); // Call the function passed as a prop
+    handleAddItems(newItem); // Call the function passed as a prop
     setDescription("");
   };
 
