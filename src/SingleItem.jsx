@@ -24,7 +24,11 @@ export default function SingleItem({ item, removeItem }) {
       >
         {item.name}
       </p>
-      <button className="button" type="button" onClick={() => removeItem(id)}>
+      <button
+        className="button"
+        type="button"
+        onClick={() => removeItem(item.id)}
+      >
         delete
       </button>
     </div>
