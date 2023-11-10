@@ -8,7 +8,14 @@ export default function Items({ items, removeItem }) {
     <div className="items">
       {items.map((item) => {
         const { id } = item;
-        return <SingleItem key={id} item={item} removeItem={removeItem} />;
+        return (
+          <SingleItem
+            key={id}
+            item={item}
+            removeItem={removeItem}
+            editItem={editItem}
+          />
+        );
       })}
     </div>
   );

@@ -57,10 +57,19 @@ const App = () => {
     setItems([]);
   }
 
+  const editItem = (itemId) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        const newItem = { ...item, completed: !item.completed };
+        return newItem;
+      } else return item;
+    });
+  };
+
   return (
     <section className="section-center">
       <Form handleAddItems={handleAddItems} />
-      <Items items={items} removeItem={handleDeleteItem} />
+      <Items items={items} removeItem={handleDeleteItem} editItem={editItem} />
     </section>
   );
 };
