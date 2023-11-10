@@ -1,11 +1,12 @@
 import Form from "./Form";
 import { useState } from "react";
 import Items from "./Items";
+import { toast } from "react-toastify";
 
 const App = () => {
   const [items, setItems] = useState([]);
 
-  function handleAddItems(item) {
+  function handleAddItems(description) {
     const newItem = {
       name: description,
       isPacked: false,
@@ -13,6 +14,7 @@ const App = () => {
     };
 
     setItems([...items, newItem]);
+    toast.success("item added to the list");
   }
 
   function handleDeleteItem(id) {

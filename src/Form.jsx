@@ -4,12 +4,17 @@
 import React from "react";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
+
 export default function Form({ handleAddItems }) {
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!description) return;
+    if (!description) {
+      toast.error("please provide value");
+      return;
+    }
     // const newItem = { description, done: false, id: Date.now() };
     handleAddItems(description);
     setDescription("");
