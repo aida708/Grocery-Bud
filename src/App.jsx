@@ -4,23 +4,25 @@ import Items from "./Items";
 import { toast } from "react-toastify";
 
 //store and retrieve data in browser's local storage: key value pairs
-const getLocalStorage = () => {
-  const list = localStorage.getItem("list");
-  if (list) {
-    list = JSON.parse(localStorage.getItem("item")); //parsed from Json format and returned an array
-  } else {
-    list = [];
-  }
-  return list;
-};
+// const getLocalStorage = () => {
+//   const list = localStorage.getItem("list");
+//   if (list) {
+//     list = JSON.parse(localStorage.getItem("item")); //parsed from Json format and returned an array
+//   } else {
+//     list = [];
+//   }
+//   return list;
+// };
 
 //save the items array into local storage , called when we want to update the local storage with the latest data
 const setLocalStorage = (items) => {
   localStorage.setItem("myList", JSON.stringify(Items));
 };
 
+const defaultList = JSON.parse(localStorage.getItem("list") || "[]");
+
 const App = () => {
-  const [items, setItems] = useState(getLocalStorage());
+  const [items, setItems] = useState(defaultList);
 
   function handleAddItems(description) {
     const newItem = {
