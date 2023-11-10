@@ -27,10 +27,10 @@ const App = () => {
         item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
+  }
 
-    function handleClearList() {
-      setItems([]);
-    }
+  function handleClearList() {
+    setItems([]);
   }
 
   return (

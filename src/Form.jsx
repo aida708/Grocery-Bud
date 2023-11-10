@@ -1,9 +1,4 @@
-//create a fomr : input field and submit button
-//when the user submits the form, handleSubmit is called
-
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function Form({ handleAddItems }) {
@@ -12,11 +7,11 @@ export default function Form({ handleAddItems }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!description) {
-      toast.error("please provide value");
+      toast.error("Please provide a value");
       return;
     }
-    // const newItem = { description, done: false, id: Date.now() };
-    handleAddItems(description);
+
+    handleAddItems(description); // Call the function passed as a prop
     setDescription("");
   };
 
